@@ -1,0 +1,209 @@
+.App {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("./assets/bg-01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.top-section {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  align-items: flex-start;
+  background-color: #06283d40;
+  justify-content: space-between;
+}
+
+.brand-name {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #dff6ff;
+}
+
+.time {
+  font-size: 1.5rem;
+}
+
+.date {
+  font-size: 1rem;
+}
+
+.search-section {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 5rem;
+  max-width: 500px;
+  background-color: #06283d40;
+  padding: 1rem 2rem;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.location-input-box::placeholder {
+  color: #dff6ff;
+  font-family: "Open Sans", sans-serif;
+}
+
+.location-input-box {
+  width: 90%;
+  color: #dff6ff;
+  font-family: "Open Sans", sans-serif;
+  outline: none;
+  border: 2px solid #dfdfdf;
+  background-color: transparent;
+  border-radius: 0.3rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.weather-info-section {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.basic-info,
+.other-info {
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #06283d40;
+  padding: 1rem;
+}
+
+.location {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.temprature-text {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.condition {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.condition-text {
+  font-size: 2rem;
+}
+
+.other-info {
+  font-size: 1.2rem;
+  width: 300px;
+}
+
+.wind,
+.wind-direction,
+.presure,
+.humidity,
+.feels-like,
+.air-quality {
+  display: flex;
+  margin: 0.5rem 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: 1rem;
+  color: #dff6ff;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.footer a {
+  color: #dff6ff;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("./assets/bg-01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .top-section {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .brand-name {
+    font-size: 2rem;
+  }
+
+  .search-section {
+    margin-top: 2rem;
+    padding: 1rem 1rem;
+  }
+
+  .basic-info,
+  .other-info {
+    width: 90%;
+    min-height: auto;
+  }
+
+  .other-info {
+    margin: 1rem 0;
+  }
+
+  .condition {
+    max-height: 50px;
+  }
+
+  .condition img {
+    height: 50px;
+  }
+
+  .wind,
+  .wind-direction,
+  .presure,
+  .humidity,
+  .feels-like,
+  .air-quality {
+    margin: 0.2rem 0;
+    font-weight: 300;
+  }
+
+  .location {
+    font-size: 2rem;
+  }
+
+  .temprature-text {
+    font-size: 3rem;
+  }
+
+  .condition-text {
+    font-size: 1.5rem;
+  }
+
+  .weather-info-section {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  .footer {
+    padding: 0 0.5rem;
+    position: relative;
+    margin-top: 1rem;
+  }
+}
