@@ -1,4 +1,7 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   min-height: 100vh;
   width: 100%;
   background-image: url("./assets/bg-01.jpg");
@@ -8,8 +11,12 @@
 }
 
 .top-section {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 1rem 2rem;
   display: flex;
+  backdrop-filter: blur(2px);
   align-items: center;
   align-items: flex-start;
   background-color: #06283d70;
@@ -33,8 +40,10 @@
 .search-section {
   display: flex;
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 4.5rem;
+  width: 100%;
   max-width: 500px;
+  border-radius: 0.5rem;
   background-color: #06283d70;
   padding: 1rem 2rem;
   justify-content: center;
@@ -51,8 +60,9 @@
   color: #dff6ff;
   font-family: "Open Sans", sans-serif;
   outline: none;
-  border: 2px solid #dfdfdf;
-  background-color: transparent;
+  border: 2px solid #dfdfdf40;
+  background-color: #06283dcc;
+  outline: none;
   border-radius: 0.3rem;
   padding: 0.5rem 0.5rem;
 }
@@ -70,11 +80,12 @@
 
 .description-section {
   display: block;
-  margin: 2rem auto !important;
+  margin: 0rem auto;
   width: 100%;
   background-color: #06283d70;
   max-width: 500px;
   padding: 1rem;
+  border-radius: 0.5rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
   color: #dff6ff;
@@ -90,7 +101,6 @@
   display: flex;
   max-width: 1000px;
   margin: 0 auto;
-  margin-top: 5rem;
   gap: 2rem;
   align-items: stretch;
 }
@@ -102,6 +112,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border-radius: 0.5rem;
   background-color: #06283d70;
   padding: 1rem;
 }
@@ -114,7 +125,6 @@
 
 .temperatures {
   display: flex;
-  height: 4rem;
   align-items: flex;
   justify-content: flex-start;
 }
@@ -132,7 +142,7 @@
 }
 
 .condition {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -163,10 +173,10 @@
 }
 
 .footer {
-  position: absolute;
+  position: relative;
   display: block;
   width: 100%;
-  bottom: 1rem;
+  bottom: 0;
   color: #dff6ff;
   font-family: "Open Sans", sans-serif;
   text-align: center;
@@ -176,9 +186,23 @@
   color: #dff6ff;
   text-decoration: none;
 }
-
+@media only screen and (max-width: 425px) {
+  .top-section {
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .search-section {
+    border-radius: 0;
+    margin-top: 9rem !important;
+  }
+}
 @media only screen and (max-width: 768px) {
   .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     min-height: 100vh;
     width: 100%;
     background-image: url("./assets/bg-01.jpg");
@@ -188,8 +212,7 @@
   }
 
   .top-section {
-    flex-direction: column;
-    gap: 0.5rem;
+    padding: 1rem 1rem;
   }
 
   .brand-name {
@@ -208,7 +231,7 @@
   }
 
   .other-info {
-    margin: 1rem 0;
+    margin-bottom: 1rem;
   }
 
   .condition {
@@ -250,20 +273,22 @@
 
   .weather-info-section {
     flex-direction: column;
-    margin-top: 2rem;
   }
   .footer {
     padding: 0 0.5rem;
-    position: sticky;
+    position: relative;
     bottom: 0;
     margin-top: 1rem;
   }
 }
 
 @media only screen and (max-width: 992px) {
+  .search-section {
+    margin: 2rem auto;
+    margin-top: 6.5rem;
+  }
   .weather-info-section {
     flex-direction: column;
-    margin-top: 2rem;
   }
 
   .basic-info,
@@ -273,13 +298,12 @@
   }
 
   .other-info {
-    margin: 1rem 0;
+    margin-bottom: 1rem 0;
   }
 
   .footer {
     padding: 0 0.5rem;
-    position: sticky;
-    bottom: 0;
+    position: relative;
     margin-top: 1rem;
   }
 }
