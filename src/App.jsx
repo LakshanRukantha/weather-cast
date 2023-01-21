@@ -19,7 +19,7 @@ function App() {
       console.log("pressed");
       setIsLoading(true);
       axios
-        .get(`http://api.weatherapi.com/v1/current.json?&q=${location}`, {
+        .get(`https://api.weatherapi.com/v1/current.json?&q=${location}`, {
           headers: {
             KEY: API_KEY,
           },
