@@ -1,12 +1,48 @@
 import "./App.css";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
 
 function App() {
   const [location, setLocation] = useState("");
   const [locationData, setLocationData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    })
+  );
+  const [currentDate, setCurrentDate] = useState(
+    new Date().toLocaleDateString([], {
+      weekday: "long",
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    })
+  );
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      );
+      setCurrentDate(
+        new Date().toLocaleDateString([], {
+          weekday: "long",
+          month: "long",
+          day: "2-digit",
+          year: "numeric",
+        })
+      );
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   const API_KEY = "a7330d35d7fb48b5bb4175450232001";
 
@@ -41,8 +77,8 @@ function App() {
       <div className="top-section">
         <h1 className="brand-name">WeatherCast</h1>
         <div>
-          <h2 className="time">7:10 AM</h2>
-          <h4 className="date">Friday, January 20, 2023</h4>
+          <h2 className="time">{currentTime}</h2>
+          <h4 className="date">{currentDate}</h4>
         </div>
       </div>
       <div className="search-section">
