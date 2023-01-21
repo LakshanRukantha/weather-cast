@@ -114,6 +114,7 @@
 
 .temperatures {
   display: flex;
+  height: 4rem;
   align-items: flex;
   justify-content: flex-start;
 }
@@ -124,9 +125,9 @@
 }
 
 .divider {
-  margin: 0 1rem;
-  min-width: 0.4rem;
-  height: 50px;
+  margin: 0.3rem 1rem;
+  min-width: 0.2rem;
+  height: 3.5rem;
   background-color: #dff6ff;
 }
 
@@ -234,6 +235,13 @@
 
   .temperature-text {
     font-size: 2.5rem;
+  }
+
+  .divider {
+    margin: 0 1rem;
+    min-width: 0.2rem;
+    height: 2.5rem;
+    background-color: #dff6ff;
   }
 
   .condition-text {
