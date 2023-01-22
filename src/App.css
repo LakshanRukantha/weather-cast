@@ -209,6 +209,11 @@
     gap: 0.5rem;
   }
 
+  .brand-section img{
+    position: relative;
+    top: 0.5rem;
+  }
+
   .date-time {
     margin-left: 3.5rem;
   }
