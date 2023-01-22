@@ -2,6 +2,7 @@ import "./App.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
+import logo from "./assets/logo.png";
 
 function App() {
   const [location, setLocation] = useState("");
@@ -75,8 +76,11 @@ function App() {
   return (
     <div className="App">
       <div className="top-section">
-        <h1 className="brand-name">WeatherCast</h1>
-        <div>
+        <div className="brand-section">
+          <img src={logo} alt="" />
+          <h1 className="brand-name">WeatherCast</h1>
+        </div>
+        <div className="date-time">
           <h2 className="time">{currentTime}</h2>
           <h4 className="date">{currentDate}</h4>
         </div>
