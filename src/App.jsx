@@ -1,5 +1,7 @@
 import "./App.css";
 import axios from "axios";
+import { motion } from "framer-motion";
+import AOS from "aos";
 import { useState, useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import logo from "./assets/logo.png";
@@ -47,13 +49,16 @@ function App() {
 
   const API_KEY = "a7330d35d7fb48b5bb4175450232001";
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   const handleChange = (event) => {
     setLocation(event.target.value);
   };
 
   const handleSearch = () => {
     if (location.trim().length > 0 && !/[^a-zA-Z0-9\s]/.test(location)) {
-      console.log("pressed");
       setIsLoading(true);
       axios
         .get(`https://api.weatherapi.com/v1/current.json?&q=${location}`, {
@@ -70,7 +75,6 @@ function App() {
           setIsLoading(false);
         });
     }
-    console.log("not fetched");
   };
 
   return (
@@ -85,39 +89,45 @@ function App() {
           <h4 className="date">{currentDate}</h4>
         </div>
       </div>
-      <div className="search-section">
-        <input
-          className="location-input-box"
-          type="text"
-          value={location}
-          placeholder="Enter Location..."
-          onChange={handleChange}
-        />
-        <Button
-          style={{
-            display: "flex",
-            flexDirection: "coulmn",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          variant="primary"
-          className="searchButton"
-          disabled={isLoading}
-          onClick={handleSearch}
-        >
-          {isLoading ? (
-            <Spinner
-              as="span"
-              animation="border"
-              size="sm"
-              role="status"
-              className="mr-2"
-              aria-hidden="true"
-            />
-          ) : null}
-          Search
-        </Button>
-      </div>
+      <motion.div
+        initial={{ y: -200 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, type: "spring", damping: 8 }}
+      >
+        <div className="search-section">
+          <input
+            className="location-input-box"
+            type="text"
+            value={location}
+            placeholder="Enter Location..."
+            onChange={handleChange}
+          />
+          <Button
+            style={{
+              display: "flex",
+              flexDirection: "coulmn",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            variant="primary"
+            className="searchButton"
+            disabled={isLoading}
+            onClick={handleSearch}
+          >
+            {isLoading ? (
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                className="mr-2"
+                aria-hidden="true"
+              />
+            ) : null}
+            Search
+          </Button>
+        </div>
+      </motion.div>
       <div className="main-content">
         {Object.values(locationData).length !== 0 ? (
           <div className="weather-info-section">
@@ -149,7 +159,7 @@ function App() {
                 </h2>
               </div>
             </div>
-            <div className="other-info">
+            <div id="animate-div" className="other-info">
               <div className="wind">
                 <h4>Wind</h4>
                 <h4>
@@ -188,7 +198,7 @@ function App() {
             </div>
           </div>
         ) : (
-          <div className="description-section">
+          <div data-aos="zoom-in" className="description-section">
             <p className="description">
               This weather app shows current weather at user's location with
               accurate temperature, wind speed, cloud coverage, humidity and
