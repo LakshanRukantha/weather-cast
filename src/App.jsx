@@ -69,6 +69,7 @@ function App() {
         .then((response) => {
           setLocationData(response.data);
           setIsLoading(false);
+          setLocation("");
         })
         .catch((error) => {
           console.log(error);
@@ -94,39 +95,42 @@ function App() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring", damping: 8 }}
       >
-        <div className="search-section">
-          <input
-            className="location-input-box"
-            type="text"
-            value={location}
-            placeholder="Enter Location..."
-            onChange={handleChange}
-          />
-          <Button
-            style={{
-              display: "flex",
-              flexDirection: "coulmn",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            variant="primary"
-            className="searchButton"
-            disabled={isLoading}
-            onClick={handleSearch}
-          >
-            {isLoading ? (
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                className="mr-2"
-                aria-hidden="true"
-              />
-            ) : null}
-            Search
-          </Button>
-        </div>
+        <form>
+          <div className="search-section">
+            <input
+              className="location-input-box"
+              type="text"
+              value={location}
+              placeholder="Enter Location..."
+              onChange={handleChange}
+            />
+            <Button
+              type="submit"
+              style={{
+                display: "flex",
+                flexDirection: "coulmn",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              variant="primary"
+              className="searchButton"
+              disabled={isLoading}
+              onClick={handleSearch}
+            >
+              {isLoading ? (
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  className="mr-2"
+                  aria-hidden="true"
+                />
+              ) : null}
+              Search
+            </Button>
+          </div>
+        </form>
       </motion.div>
       <div className="main-content">
         {Object.values(locationData).length !== 0 ? (
