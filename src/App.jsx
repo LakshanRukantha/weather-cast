@@ -5,6 +5,15 @@ import AOS from "aos";
 import { useState, useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import logo from "./assets/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faWind,
+  faArrowRight,
+  faTentArrowDownToLine,
+  faDroplet,
+  faTemperatureHalf,
+  faCloud,
+} from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [location, setLocation] = useState("");
@@ -165,38 +174,62 @@ function App() {
             </div>
             <div id="animate-div" className="other-info">
               <div className="wind">
-                <h4>Wind</h4>
+                <div className="info-item">
+                  <FontAwesomeIcon className="info-icon" icon={faWind} />
+                  <h4>Wind</h4>
+                </div>
                 <h4>
                   {locationData.current &&
                     locationData.current.wind_kph + " km/h"}
                 </h4>
               </div>
               <div className="wind-direction">
-                <h4>Wind Direction</h4>
+                <div className="info-item">
+                  <FontAwesomeIcon className="info-icon" icon={faArrowRight} />
+                  <h4>Wind Direction</h4>
+                </div>
                 <h4>{locationData.current && locationData.current.wind_dir}</h4>
               </div>
               <div className="presure">
-                <h4>Presure</h4>
+                <div className="info-item">
+                  <FontAwesomeIcon
+                    className="info-icon"
+                    icon={faTentArrowDownToLine}
+                  />
+                  <h4>Presure</h4>
+                </div>
                 <h4>
                   {locationData.current &&
                     locationData.current.pressure_mb + " hPa"}
                 </h4>
               </div>
               <div className="humidity">
-                <h4>Humidity</h4>
+                <div className="info-item">
+                  <FontAwesomeIcon className="info-icon" icon={faDroplet} />
+                  <h4>Humidity</h4>
+                </div>
                 <h4>
                   {locationData.current && locationData.current.humidity + " %"}
                 </h4>
               </div>
               <div className="feels-like">
-                <h4>Feels Like</h4>
+                <div className="info-item">
+                  <FontAwesomeIcon
+                    className="info-icon"
+                    icon={faTemperatureHalf}
+                  />
+                  <h4>Feels Like</h4>
+                </div>
                 <h4>
                   {locationData.current &&
                     locationData.current.feelslike_c + " °C"}
                 </h4>
               </div>
               <div className="air-quality">
-                <h4>Clouds</h4>
+                <div className="info-item">
+                  <FontAwesomeIcon className="info-icon" icon={faCloud} />
+                  <h4>Clouds</h4>
+                </div>
                 <h4>{locationData.current && locationData.current.cloud}</h4>
               </div>
             </div>
